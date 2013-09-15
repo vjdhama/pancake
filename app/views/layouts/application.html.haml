@@ -9,14 +9,15 @@
     %nav.top-bar
       %ul.title-area
         %li.name
-          %h1
-            = link_to 'Awesumn Store', @pancake
+          %h1= link_to 'Awesumn Clubs', @pancake
       %section.top-bar-section
         %ul.right
           %li.divider
-            = link_to 'Browse', @pancake
+          %li.active
+            = link_to 'Login', @pancake
           %li.divider
-            = link_to 'Contact Us', @pancake
+          %li.active
+            = link_to 'Register', @pancake
     %div.row
       %div.small-8.columns
         = yield
