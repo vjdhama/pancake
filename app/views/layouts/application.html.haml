@@ -9,15 +9,23 @@
     %nav.top-bar
       %ul.title-area
         %li.name
-          %h1= link_to 'Awesumn Clubs', @pancake
+          %h1= link_to 'Awesumn Clubs', root_path
       %section.top-bar-section
         %ul.right
-          %li.divider
-          %li.active
-            = link_to 'Login', @pancake
-          %li.divider
-          %li.active
-            = link_to 'Register', @pancake
+          - if model_signed_in?
+            %li.divider
+              %li.active
+                = link_to 'Logout', destroy_model_session_path
+            %li.divider
+              %li.active
+                = link_to 'Edit', edit_model_registration_path
+          - else
+            %li.divider
+            %li.active
+              = link_to 'Login', new_model_session_path
+            %li.divider
+            %li.active
+              = link_to 'Register', new_model_registration_path
     %div.row
       %div.small-8.columns
         = yield
