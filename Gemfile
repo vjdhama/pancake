@@ -6,6 +6,7 @@ gem 'rails', '4.0.0'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', '~> 1.3.8'
 gem 'haml', '~> 4.0.3'
+gem 'haml-rails', '~> 0.4'
 gem 'zurb-foundation', '~> 4.3.1'
 gem 'devise', '~> 3.1.0'
 # Use SCSS for stylesheets
