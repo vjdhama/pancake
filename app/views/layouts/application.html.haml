@@ -1,26 +1,31 @@
 %html
   %head
-    %title
-      = content_for?(:title) ? yield(:title) : "Untitled"
-    = stylesheet_link_tag "application", media: :all
-    = javascript_include_tag "vendor/custom.modernizr"
-    = csrf_meta_tags
-  %body
-    %nav.top-bar
-      %ul.title-area
-        %li.name
-          %h1= link_to 'RideClubs', root_path
-      %section.top-bar-section
-        %ul.right
-          - if model_signed_in?
-            %li.active
-              = link_to 'Logout', destroy_model_session_path
-            %li.active
-              = link_to 'Edit', edit_model_registration_path
-          - else
-            %li.active
-              = link_to 'Login / SignUp', new_model_session_path
-    %div.row.center
-      %div.small-5.columns
-        = yield
+    %title Census 
+    = stylesheet_link_tag    "application", :media => "all"
     = javascript_include_tag "application"
+    = csrf_meta_tags
+%body
+  %div.navbar.navbar-fixed-top.navbar-inverse
+    %div.navbar-inner
+      %div.container
+        %a.brand{:href => "/"} AitClubs
+        %ul.nav
+          %li
+            = link_to "Home", root_path
+        %ul.nav.pull-right
+          - if model_signed_in?
+            %li
+              = link_to current_model.email, edit_model_registration_path
+            %li
+              = link_to "Sign Out", destroy_model_session_path,method: :delete
+          - else
+            %li
+              = link_to "Register",new_model_registration_path
+            %li
+              = link_to "Login",new_model_session_path
+  %div.some{style: "padding-top : 2%", align: "center"}
+    %p.alert
+      = alert
+    %p.notice 
+      = notice
+%div.container=yield
