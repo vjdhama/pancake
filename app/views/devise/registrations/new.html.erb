@@ -1,8 +1,8 @@
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), html:{class: "well span4"}) do |f| %>
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), html:{class: "well span4 pull-right"}) do |f| %>
   <legend>Sign up</legend>
   <%= devise_error_messages!%>
-  <div><%= f.label :email %><br />
+  <div><%= f.label :email %>
   <%= f.email_field :email, :autofocus => true, placeholder: "Email" %></div>
   <% if !devise_error_messages!.index("Email").nil? %>
     <div class ="error">
@@ -11,7 +11,7 @@
   <%end%>
 
 
-  <div><%= f.label :password %><br />
+  <div><%= f.label :password %>
   <%= f.password_field :password, placeholder: "Password" %></div>
   <% if !devise_error_messages!.index("Password").nil? %>
     <div class ="error">
@@ -19,10 +19,10 @@
     <small class="error">Invalid entry</small>
   <%end%>
 
-  <div><%= f.label :password_confirmation %><br />
+  <div><%= f.label :password_confirmation %>
   <%= f.password_field :password_confirmation, placeholder: "Confirm Password" %></div>
 
-  <div><%= f.submit "Sign up" %></div>
+<div><%= f.submit " Sign up ", class: "btn btn-info" %></div>
   <%= render "devise/shared/links" %>
 <% end %>
 

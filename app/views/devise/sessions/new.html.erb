@@ -1,17 +1,18 @@
 
-<%= form_for(resource, :as => resource_name, :url => session_path(resource_name),html:{class: "span4 well"}) do |f| %>
+<%= form_for(resource, :as => resource_name, :url => session_path(resource_name),html:{class: "span4 well pull-right"}) do |f| %>
   <legend>Sign in</legend>
-  <div><%= f.label :email %><br />
+  <div><%= f.label :email %>
   <%= f.email_field :email, :autofocus => true, placeholder: "Email" %></div>
 
-  <div><%= f.label :password %><br />
+  <div><%= f.label :password %>
   <%= f.password_field :password, placeholder: "Password" %></div>
 
   <% if devise_mapping.rememberable? -%>
-    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
+    <div><%= f.check_box :remember_me %>
+    <%= f.label :remember_me %></div>
   <% end -%>
 
-  <div><%= f.submit "Sign in", class: "small button" %></div>
+  <div><%= f.submit " Sign in ", class: "btn btn-success" %></div>
   <%= render "devise/shared/links" %>
 <% end %>
 
