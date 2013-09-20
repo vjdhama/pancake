@@ -24,9 +24,12 @@
               = link_to " Register ",new_model_registration_path, class: "icon-list"
             %li
               = link_to " Login ",new_model_session_path, class: "icon-user"
-  %div.some{style: "padding-top : 2%", align: "center"}
-    %p.alert
-      = alert
-    %p.notice 
-      = notice
-  %div.container=yield
+
+  %div.container.some{style:"padding-top: 5%;"}
+    - if notice
+      .alert.alert-success.some{align: 'center'}
+        %strong= notice
+    - if alert
+      .alert.alert-error.some{align: 'center'}
+        = alert
+    = yield

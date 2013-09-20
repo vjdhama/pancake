@@ -1,22 +1,26 @@
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), html:{class: "well span4 pull-right"}) do |f| %>
   <legend>Sign up</legend>
-  <%= devise_error_messages!%>
   <div><%= f.label :email %>
   <%= f.email_field :email, :autofocus => true, placeholder: "Email" %></div>
   <% if !devise_error_messages!.index("Email").nil? %>
-    <div class ="error">
-    </div>
-    <small class="error">Invalid entry</small>
+    <small class="error">
+      <% resource.errors[:email].each do |msg| %>
+        Email <%= msg %><br>
+      <% end %>
+    </small>
   <%end%>
 
 
   <div><%= f.label :password %>
   <%= f.password_field :password, placeholder: "Password" %></div>
   <% if !devise_error_messages!.index("Password").nil? %>
-    <div class ="error">
-    </div>
-    <small class="error">Invalid entry</small>
+    <small class="error">
+      <% resource.errors[:password].each do |msg| %>
+        Password <%= msg %><br>
+      <% end %>
+      <%= p "Password do not match" if !resource.errors[:password_confirmation].nil? %>
+    </small>
   <%end%>
 
   <div><%= f.label :password_confirmation %>
