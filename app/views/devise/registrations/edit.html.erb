@@ -5,6 +5,13 @@
 
   <div><%= f.label :email %>
   <%= f.email_field :email, :autofocus => true %></div>
+  <% if !devise_error_messages!.index("Email").nil? %>
+    <small class="error">
+      <% resource.errors[:email].each do |msg| %>
+        Email <%= msg %><br>
+      <% end %>
+    </small>
+  <%end%>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
@@ -12,6 +19,14 @@
 
   <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
   <%= f.password_field :password, :autocomplete => "off" %></div>
+  <% if !devise_error_messages!.index("Password").nil? %>
+    <small class="error">
+      <% resource.errors[:password].each do |msg| %>
+        Password <%= msg %><br>
+      <% end %>
+      <%= p "Password do not match" if !resource.errors[:password_confirmation].nil? %>
+    </small>
+  <%end%>
 
   <div><%= f.label :password_confirmation %>
   <%= f.password_field :password_confirmation %></div>
