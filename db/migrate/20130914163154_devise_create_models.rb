@@ -31,6 +31,10 @@ class DeviseCreateModels < ActiveRecord::Migration
       # t.datetime :locked_at
 
       t.string :user
+      t.integer :oss
+      t.integer :robotics
+      t.integer :math
+      t.integer :magzine
 
       t.timestamps
     end
