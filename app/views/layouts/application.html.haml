@@ -4,13 +4,16 @@
     = stylesheet_link_tag    "application", :media => "all"
     = javascript_include_tag "application"
     = csrf_meta_tags
-%body
-  %div.navbar.navbar-fixed-top.navbar-inverse
+%body.pull_top
+  %div.navbar.navbar-fixed-top.navbar-inverse.sticky
     %div.navbar-inner
       %div.container
         %a.brand{:href => "/"} 
           %i.icon-flag
-          AitClubs
+            AitClubs
+        %form.navbar-search.pull-right
+          %div.input-append
+            %input.search-query{placeholder: "Search"}
         %ul.nav.pull-right
           %li
             = link_to " Home ", root_path, class: "icon-home"
@@ -33,3 +36,14 @@
       .alert.alert-error.some{align: 'center'}
         = alert
     = yield
+
+  %div.navbar.navbar-fixed-bottom
+    %div.navbar-inner
+      %div.container
+        %h6{align: "center"} 
+          Designed and built by
+          %a{href: "https://twitter.com/pkrawat1"}
+            @pankaj
+          and
+          %a{href: "https://twitter.com/vjdhama"}
+            @vjdhama
