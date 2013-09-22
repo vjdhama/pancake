@@ -1,4 +1,4 @@
 class Club < ActiveRecord::Base
-  belongs_to :model
-  validates :name, uniqueness: {scope: :model_id},presence: :true
+  validates :name, presence: true, length: {minimum: 3}
+  has_many :users_clubs, dependent: :destroy
 end
