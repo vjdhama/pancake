@@ -12,9 +12,11 @@
           %i.icon-flag
           AitClubs
         %ul.nav.pull-right
-          %li
-            = link_to " Home ", root_path, class: "icon-home"
           - if model_signed_in?
+            %li
+              = link_to " Home ", root_path, class: "icon-home"
+            %li 
+              = link_to "My Post", posts_path, class: "icon-pencil"
             %li
               = link_to " #{current_model.email}", edit_model_registration_path, class: "icon-edit"
             %li
