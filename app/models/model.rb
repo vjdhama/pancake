@@ -3,4 +3,6 @@ class Model < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+  has_many :users_clubs, dependent: :destroy
+  has_many :posts, through: :users_clubs
 end
