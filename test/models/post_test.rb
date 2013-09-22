@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class OssClubControllerTest < ActionController::TestCase
+class PostTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

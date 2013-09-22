@@ -1,2 +1,0 @@
-class OssClubController < ApplicationController
-end

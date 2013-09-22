@@ -1,4 +1,6 @@
 Pancake::Application.routes.draw do
+  resources :posts
+
   devise_for :models
   get "pancake/index"
   # The priority is based upon order of creation: first created -> highest priority.
