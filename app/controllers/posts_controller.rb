@@ -4,7 +4,16 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    if params[:format].nil?
+      @posts = Model.find(current_model.id).users_clubs.includes(:posts).last.posts
+    else
+      if UsersClub.where(club_id: params[:format], model_id: current_model.id).blank?
+        club = Model.find(current_model.id).users_clubs.create(club_id: params[:format])
+        club.posts.create(description: "Welcome to the #{Club.find(UsersClub.last.club_id).name}")
+      else
+        @posts = Model.find(current_model.id).users_clubs.where(club_id: params[:format]).first.posts
+      end
+    end
   end
 
   # GET /posts/1
