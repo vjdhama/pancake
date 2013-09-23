@@ -1,10 +1,14 @@
-- @clubs.each do |club|
-  %ul.pricing-table.small-4
+-@clubs.each do |club|
+  %ul.pricing-table.span3
     %li.title
       = club.name
-    %li.cta-button
-      - if club.users_clubs.where(model_id: current_model.id).length == 0
+    %li.price= club.tagline
+    %li.description= club.description
+    -if club.users_clubs.where(model_id: current_model.id).length == 0
+      %li.cta-button
         = link_to "Join", posts_path(club.id), class: "button" 
-      - else
+    -else
+      %li.bullet-item
         = link_to "New Post", new_post_path(club.id), class: "button"
+      %li.bullet-item
         = link_to "Show Posts", posts_path(club.id), class: "button"

@@ -1,8 +1,7 @@
 = form_for @post, :html => { :class => 'form-horizontal' } do |f|
   .control-group
-    = f.label :users_club_id, :class => 'control-label'
     .controls
-      = f.text_field :users_club_id, :class => 'text_field', value: params[:format]
+      = f.text_field :users_club_id, :class => 'text_field hide', value: params[:format]
   .control-group
     = f.label :title, :class => 'control-label'
     .controls
@@ -10,7 +9,7 @@
   .control-group
     = f.label :description, :class => 'control-label'
     .controls
-      = f.text_field :description, :class => 'text_field'
+      = f.text_field :description
   .form-actions
     = f.submit nil, :class => 'btn btn-primary'
     = link_to t('.cancel', :default => t("helpers.links.cancel")), posts_path, :class => 'btn'

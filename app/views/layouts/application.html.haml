@@ -15,8 +15,6 @@
           - if model_signed_in?
             %li
               = link_to " Home ", root_path, class: "icon-home"
-            %li 
-              = link_to "My Post", posts_path, class: "icon-pencil"
             %li
               = link_to " #{current_model.email}", edit_model_registration_path, class: "icon-edit"
             %li
@@ -35,3 +33,13 @@
       .alert.alert-error.some{align: 'center'}
         = alert
     = yield
+  %div.navbar
+    %div.navbar-inner
+      %div.container
+      %h6{align: "center"} 
+        Designed and built by
+        %a{href: "https://twitter.com/pkrawat1"}
+          @pankaj
+        and
+        %a{href: "https://twitter.com/vjdhama"}
+          @vjdhama
