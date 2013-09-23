@@ -2,7 +2,7 @@
   .control-group
     = f.label :users_club_id, :class => 'control-label'
     .controls
-      = f.text_field :users_club_id, :class => 'text_field'
+      = f.text_field :users_club_id, :class => 'text_field', value: params[:format]
   .control-group
     = f.label :title, :class => 'control-label'
     .controls
